@@ -47,25 +47,31 @@ def read_numbers_2(input):
          
    return [first, last]
 
+def solve_1(input):
+  numbers = list(map(read_numbers_1, input))
+  edges = get_edges(numbers)
+  edge_nums = get_numbers_from_edges(edges)
+  return sum(edge_nums)
+
+def solve_2(input):
+   edges = list(map(read_numbers_2, input))
+   edge_nums = get_numbers_from_edges(edges)
+   return sum(edge_nums)
+
 if __name__ == '__main__':
-    is_test = False
-    input1 = is_test and 'sample.txt' or 'input.txt'
-    input2 = is_test and 'sample2.txt' or 'input.txt'
+    input_file = 'input.txt'
     
-    with open(input1, 'r') as f:
+    with open(input_file, 'r') as f:
         lines = f.readlines()
         lines = [line.strip() for line in lines]
-    numbers = list(map(read_numbers_1, lines))
-    edges = get_edges(numbers)
-    edge_nums = get_numbers_from_edges(edges)
+    result = solve_1(lines)
     
-    print('part 1', sum(edge_nums))
+    print('part 1', result)
 
 
-    with open(input2, 'r') as f:
+    with open(input_file, 'r') as f:
         lines = f.readlines()
         lines = [line.strip() for line in lines]
-    edges = list(map(read_numbers_2, lines))
-    edge_nums = get_numbers_from_edges(edges)
+    result = solve_2(lines)
     
-    print('part 2', sum(edge_nums))
+    print('part 2', result)
