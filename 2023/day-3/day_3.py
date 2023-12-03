@@ -7,9 +7,6 @@ def get_part_nums_from_line(candidates, grid, current_row_num):
     col_search_start = max(start - 1, 0)
     col_search_end = min(end + 2, len(grid[0]))
 
-    # print('num', num, 'start', start, 'end', end, 'current_row_num', current_row_num)
-    # print('col_search_start', col_search_start, 'col_search_end', col_search_end)
-
     if current_row_num > 0:
       for col in range(col_search_start, col_search_end):
         if grid[current_row_num - 1][col] in special_characters:
@@ -44,11 +41,6 @@ def get_gear_ratio(gear, parts):
 
   for part in parts:
     num, part_row, part_start, part_end = part
-
-    # if (num == 598):
-    #   print('num', num)
-    #   print('part_row', part_row, 'part_start', part_start, 'part_end', part_end)
-    #   print('gear_row', gear_row, 'gear_col', gear_col)
 
     if part_row == gear_row:
       if part_start == gear_col + 1:
